@@ -1,0 +1,18 @@
+body {
+  overflow-x: hidden !important;
+}
+
+.elementToFadeInAndOut {
+  opacity: 1;
+  animation: fade 5s linear infinite;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

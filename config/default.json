@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://asfand:125@cluster0.yjcd2.mongodb.net/khaddar?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
