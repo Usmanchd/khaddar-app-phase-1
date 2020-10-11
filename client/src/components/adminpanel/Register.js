@@ -40,6 +40,7 @@ const Login = ({ register, auth: { isAuthenticated } }) => {
             name="name"
             value={name}
             onChange={onchange}
+            required
           ></input>
         </div>
         <div className="form-group">
@@ -49,6 +50,7 @@ const Login = ({ register, auth: { isAuthenticated } }) => {
             name="email"
             value={email}
             onChange={onchange}
+            required
           ></input>
         </div>
         <div className="form-group">
@@ -58,6 +60,7 @@ const Login = ({ register, auth: { isAuthenticated } }) => {
             name="password"
             value={password}
             onChange={onchange}
+            required
           ></input>
         </div>
         <input type="submit" value="LOGIN" className="btn btn-success"></input>

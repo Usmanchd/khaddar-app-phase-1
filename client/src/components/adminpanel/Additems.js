@@ -85,10 +85,8 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
     //eslint-disable-next-line
   }, [data.currentitem]);
 
-  console.log(data.categories.length);
-
   const onChange = (e) => setitem({ ...item, [e.target.name]: e.target.value });
-  console.log(item);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     if (data.currentitem == null) {
@@ -114,7 +112,7 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
         ...item,
         categories: item.categories.map((c) => c._id),
       };
-      console.log('update', newUpdateItem);
+
       updateItem({ ...newUpdateItem, img: state.avatarURL });
       setstate({ ...state, avatarURL: '' });
       setitem({
@@ -220,10 +218,17 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
                 const categories = data.categories.filter(
                   (c) => c.name === e.target.value
                 );
-                setitem({
-                  ...item,
-                  categories: [...item.categories, categories[0]],
-                });
+
+                console.log(categories);
+                console.log(item.categories);
+                if (
+                  item.categories.filter((c) => c._id === categories[0]._id)
+                    .length === 0
+                )
+                  setitem({
+                    ...item,
+                    categories: [...item.categories, categories[0]],
+                  });
               }}
             >
               <option value="0">* Select Categories</option>
@@ -241,12 +246,10 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
         </div>
 
         <div style={{ height: 'auto', width: '300px' }}>
-          <ul>
-            <li>
-              <b>Name</b>
-            </li>
+          <b>Name</b>
+          <ol>
             {categories && categories.map((c) => <li key={c._id}>{c.name}</li>)}
-          </ul>
+          </ol>
         </div>
 
         {/* <div className="">
@@ -291,7 +294,6 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
           <br />
         </div>
         <hr />
-        {console.log(item)}
 
         <div className="form-group">
           <input
@@ -320,7 +322,12 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
           />
         </div>
 
-        {/* <input disabled={imgLoading ? true : false} /> */}
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value="submit"
+          disabled={imgLoading ? true : false}
+        />
       </form>
     </div>
   );

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { removeCategory } from "../../actions/addnewitem";
-import { setCurrentCat } from "../../actions/addnewitem";
-import { clearCurrentCat } from "../../actions/addnewitem";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { removeCategory } from '../../actions/addnewitem';
+import { setCurrentCat } from '../../actions/addnewitem';
+import { clearCurrentCat } from '../../actions/addnewitem';
 
 const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
   const handleRemove = (id) => {
@@ -14,7 +14,18 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
   return (
     <div>
       {data.categories.length === 0 ? (
-        <h1>Loading..</h1>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+            flexDirection: 'column',
+          }}
+        >
+          <img src={require('../../assets/loader1.svg')} alt="" width="10%" />
+          <h4 className="elementToFadeInAndOut">Fetching categories...</h4>
+        </div>
       ) : (
         <table className="table">
           <thead>
@@ -30,7 +41,9 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
           <tbody>
             {data.categories.map((c) => (
               <tr>
-                <img src={c.img} style={{ width: "30%" }} />
+                <td style={{ width: '15%' }}>
+                  <img src={c.img} width="100%" />
+                </td>
                 <td>{c.name}</td>
                 <td>{c.caption}</td>
                 <td>{c.descrip}</td>
@@ -38,8 +51,8 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
                   <Link to="/panel/addnewcategory">
                     <button
                       style={{
-                        backgroundColor: "black",
-                        borderRadius: "20%",
+                        backgroundColor: 'black',
+                        borderRadius: '20%',
                       }}
                       onClick={() => handleEdit(c)}
                     >
@@ -50,8 +63,8 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
                 <td>
                   <button
                     style={{
-                      backgroundColor: "black",
-                      borderRadius: "20%",
+                      backgroundColor: 'black',
+                      borderRadius: '20%',
                     }}
                     onClick={() => handleRemove(c._id)}
                   >

@@ -1,45 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { login } from "../../actions/auth";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
+import { useHistory } from 'react-router-dom';
 const Login = ({ login, auth: { isAuthenticated } }) => {
   let history = useHistory();
   useEffect(() => {
     if (isAuthenticated) {
-      history.push("/panel");
+      history.push('/panel');
     }
     //eslint-disable-next-line
   }, [isAuthenticated]);
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const { email, password } = user;
   const onchange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
-      alert("please fill all fields");
+    if (email === '' || password === '') {
+      alert('please fill all fields');
     } else {
       login(user);
     }
-    console.log("Login", user);
+    console.log('Login', user);
   };
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
       }}
     >
       <div
         className="form-container"
         style={{
-          backgroundColor: "lightgrey",
-          padding: "40px",
+          backgroundColor: 'lightgrey',
+          padding: '40px',
         }}
       >
         <h1>
@@ -55,6 +55,7 @@ const Login = ({ login, auth: { isAuthenticated } }) => {
               name="email"
               value={email}
               onChange={onchange}
+              required
             ></input>
           </div>
           <div className="form-group">
@@ -66,6 +67,7 @@ const Login = ({ login, auth: { isAuthenticated } }) => {
               name="password"
               value={password}
               onChange={onchange}
+              required
             ></input>
           </div>
           <input

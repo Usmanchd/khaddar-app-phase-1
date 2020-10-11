@@ -43,6 +43,7 @@ export const orderPlace = (orderdata) => async (dispatch) => {
   const res = await axios.post(`/api/orders`, orderdata, config);
 
   socket.emit('new_order', 'order');
+  localStorage.removeItem('cart');
 
   dispatch({
     type: 'PLACE_ORDER',

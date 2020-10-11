@@ -106,7 +106,7 @@ const ProductItems = ({ data, addCart, addLike, updateCart, unLike, cart }) => {
                 <div className="product-caption"></div>
                 <h4>
                   <Link to={`/${product._id}`} style={{ color: 'black' }}>
-                    {product.name}
+                    {product.name}({product.code})
                   </Link>
                 </h4>
                 <div className="price">

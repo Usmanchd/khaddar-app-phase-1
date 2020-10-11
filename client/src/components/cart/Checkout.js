@@ -8,9 +8,9 @@ const Checkout = ({ cart, orderPlace }) => {
   const [orderdetail, setOrderdetail] = useState({
     firstname: '',
     secondname: '',
-    phonenumber: '',
+    phonenumber: +92,
     email: '',
-    phoneother: '',
+    phoneother: +92,
     city: '',
     permanentAddress: '',
     postalAddress: '',
@@ -44,19 +44,30 @@ const Checkout = ({ cart, orderPlace }) => {
       return { product: item._id, quantity: item.quantity };
     });
     orderPlace({ ...orderdetail, total, orders: productsOrder });
-    console.log({ ...orderdetail, total, orders: productsOrder });
+    setOrderdetail({
+      firstname: '',
+      secondname: '',
+      phonenumber: +92,
+      email: '',
+      phoneother: +92,
+      city: '',
+      permanentAddress: '',
+      postalAddress: '',
+      postcodeZip: '',
+      othernotes: '',
+    });
   };
   return (
     <div>
-      {/* <div class="slider-area ">
+      {/* <div className="slider-area ">
         <div
-          class="single-slider slider-height2 d-flex align-items-center"
+          className="single-slider slider-height2 d-flex align-items-center"
           style={{ backgroundImage: "url('assets/img/hero/category.jpg')" }}
         >
-          <div class="container">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="hero-cap text-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-12">
+                <div className="hero-cap text-center">
                   <h2>Checkout</h2>
                 </div>
               </div>
@@ -65,21 +76,21 @@ const Checkout = ({ cart, orderPlace }) => {
         </div>
       </div> */}
 
-      <section class="checkout_area ">
-        <div class="container">
-          <div class="billing_details">
-            <div class="row">
-              <div class="col-lg-8">
+      <section className="checkout_area ">
+        <div className="container">
+          <div className="billing_details">
+            <div className="row">
+              <div className="col-lg-8">
                 <h3>Billing Details</h3>
                 <form
-                  class="row contact_form"
+                  className="row contact_form"
                   onSubmit={(e) => onSubmit(e)}
-                  novalidate="novalidate"
+                  // novalidate="novalidate"
                 >
-                  <div class="col-md-6 form-group p_star">
+                  <div className="col-md-6 form-group p_star">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder=" First name"
                       name="firstname"
                       value={firstname}
@@ -87,92 +98,99 @@ const Checkout = ({ cart, orderPlace }) => {
                       required
                     />
                   </div>
-                  <div class="col-md-6 form-group p_star">
+                  <div className="col-md-6 form-group p_star">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Second Name"
                       name="secondname"
                       value={secondname}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
 
-                  <div class="col-md-6 form-group p_star">
+                  <div className="col-md-6 form-group p_star">
                     <input
                       type="number"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Phone Number"
                       name="phonenumber"
                       value={phonenumber}
                       onChange={(e) => onChange(e)}
+                      required
+                      minLength="9"
                     />
                   </div>
-                  <div class="col-md-6 form-group p_star">
+                  <div className="col-md-6 form-group p_star">
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Email Address"
                       name="email"
                       value={email}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
-                  <div class="col-md-6 form-group p_star">
+                  <div className="col-md-6 form-group p_star">
                     <input
                       type="number"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Phone Number(other)"
                       name="phoneother"
                       value={phoneother}
                       onChange={(e) => onChange(e)}
-                      required
                     />
                   </div>
-                  <div class="col-md-12 form-group p_star">
+                  <div className="col-md-12 form-group p_star">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Permanent Address"
                       name="permanentAddress"
                       value={permanentAddress}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
-                  <div class="col-md-12 form-group p_star">
+                  <div className="col-md-12 form-group p_star">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Postal Address"
                       name="postalAddress"
                       value={postalAddress}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
-                  <div class="col-md-12 form-group p_star">
+                  <div className="col-md-12 form-group p_star">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Town/City"
                       name="city"
                       value={city}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
-                  <div class="col-md-12 form-group">
+                  <div className="col-md-12 form-group">
                     <input
-                      type="text"
-                      class="form-control"
+                      type="number"
+                      className="form-control"
                       id="zip"
                       name="postcodeZip"
                       placeholder="Postcode/ZIP"
                       value={postcodeZip}
                       onChange={(e) => onChange(e)}
+                      required
                     />
                   </div>
-                  <div class="col-md-12 form-group">
+                  <div className="col-md-12 form-group">
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       name="othernotes"
                       id="message"
                       rows="1"
@@ -186,10 +204,10 @@ const Checkout = ({ cart, orderPlace }) => {
                   </div>
                 </form>
               </div>
-              <div class="col-lg-4">
-                <div class="order_box">
+              <div className="col-lg-4">
+                <div className="order_box">
                   <h2>Your Order</h2>
-                  <ul class="list">
+                  <ul className="list">
                     <li>
                       <a href="#">
                         Product
@@ -200,9 +218,9 @@ const Checkout = ({ cart, orderPlace }) => {
                       cart.cartitems.map((item) => (
                         <li>
                           <a href="#">
-                            {item.name}
-                            <span class="middle">x 0{item.quantity}</span>
-                            <span class="last">
+                            {item.name}({item.code})
+                            <span className="middle">x 0{item.quantity}</span>
+                            <span className="last">
                               <b>{item.price * item.quantity}</b>
                             </span>
                           </a>
@@ -213,7 +231,7 @@ const Checkout = ({ cart, orderPlace }) => {
                     )}
                   </ul>
 
-                  <ul class="list list_2">
+                  <ul className="list list_2">
                     <li>
                       <a href="#">
                         Subtotal

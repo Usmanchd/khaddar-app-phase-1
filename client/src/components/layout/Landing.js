@@ -13,9 +13,9 @@ const Landing = () => {
       <Main />
       <Categories />
       {/* <Latest /> */}
-      <Bestproduct />
+      {/* <Bestproduct /> */}
       <br />
-      <Latestoffer />
+      {/* <Latestoffer /> */}
       <Gallery />
     </Fragment>
   );

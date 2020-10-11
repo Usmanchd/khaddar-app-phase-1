@@ -1,21 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Header from "./layout/Header";
-import Body from "./layout/Body";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useLocation,
-} from "react-router-dom";
-import "./Admin.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Header from './layout/Header';
+import Body from './layout/Body';
+import './Admin.css';
 
 const Landingpanel = () => {
-  const handele = (type) => {};
   return (
     <div className="">
       <Header />
-
       <div class="mobile_nav">
         <div class="nav_bar">
           <img

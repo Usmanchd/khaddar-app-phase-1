@@ -3,17 +3,35 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import { HashRouter } from 'react-router-dom';
+import { Detector } from 'react-detect-offline';
 import './index.css';
 
 import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </Provider>
+    <Detector
+      render={({ online }) =>
+        online ? (
+          <Provider store={store}>
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </Provider>
+        ) : (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '100vh',
+            }}
+          >
+            <img src={require('./assets/offline.jpg')} width="40%" />
+          </div>
+        )
+      }
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

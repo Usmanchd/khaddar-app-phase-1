@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .headera {
@@ -91,6 +91,7 @@ body {
   box-sizing: border-box;
   transition: 0.5s;
   transition-property: background;
+  font-family: 'Playfair Display';
 }
 
 .sidebar a:hover {
@@ -136,7 +137,7 @@ label #sidebar_btn:hover {
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
-  background: url("/assets/img/background.png") no-repeat;
+  background: url('/assets/img/background.png') no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -252,16 +253,20 @@ label #sidebar_btn:hover {
   }
 }
 
-
-
 table.order-table tbody {
   display: block;
   max-height: 65vh;
   overflow-y: scroll;
 }
 
-table.order-table thead, table.order-table tbody tr {
+table.order-table thead,
+table.order-table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
+}
+
+table.order-table tbody tr:hover {
+  background-color: rgb(199, 199, 199);
+  cursor: pointer;
 }

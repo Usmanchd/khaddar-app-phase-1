@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     email,
     phoneother,
     city,
-    permanenetAddress,
+    permanentAddress,
     postalAddress,
     postcodeZip,
     othernotes,
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       email,
       phoneother,
       city,
-      permanenetAddress,
+      permanentAddress,
       postalAddress,
       postcodeZip,
       othernotes,
@@ -43,7 +43,9 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  const orders = await Orders.find().sort('field -date');
+  const orders = await Orders.find()
+    .sort('field -date')
+    .populate('orders.product');
   // .populate('orders.product');
   //   .populate({
   //     path: "orders",
@@ -56,10 +58,18 @@ router.get('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const _id = req.params.id;
-  const orders_status = req.body.order.orderStatus;
-  const orders = await Orders.findByIdAndUpdate(_id, {
-    $set: { orderStatus: orders_status },
-  });
+
+  const orderStatus = req.body.orderStatus;
+
+  await Orders.findByIdAndUpdate(
+    _id,
+    {
+      $set: { orderStatus },
+    },
+    {
+      useFindAndModify: false,
+    }
+  );
 
   res.json('updated');
 });

@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
   removeItem,
   setCurrentItem,
   clearCurrentItem,
-} from "../../../actions/addnewitem";
+} from '../../../actions/addnewitem';
 
 const ShowProducts = ({
   data,
@@ -23,38 +23,55 @@ const ShowProducts = ({
   return (
     <div>
       {data.items.length === 0 ? (
-        <h1>Loading..</h1>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+            flexDirection: 'column',
+          }}
+        >
+          <img
+            src={require('../../../assets/loader1.svg')}
+            alt=""
+            width="10%"
+          />
+          <h4 className="elementToFadeInAndOut">Fetching all Products...</h4>
+        </div>
       ) : (
         <table className="table">
           <thead>
             <tr>
               <th scope="col">Item</th>
               <th scope="col">Name</th>
-              <th scope="col">price</th>
+              <th scope="col">Code</th>
+              <th scope="col">Price</th>
               <th scope="col">Description</th>
-              <th scope="col">type</th>
-              <th scope="col">code</th>
-              <th scope="col">edit</th>
-              <th scope="col">delete</th>
+              <th scope="col">Type</th>
+
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
             {data.items.map((c) => (
               <tr>
-                <td>
-                  <img src={c.img} style={{ width: "23%" }} />
+                <td style={{ width: '15%' }}>
+                  <img src={c.img} width="100%" />
                 </td>
                 <td>{c.name}</td>
+                <td>{c.code}</td>
                 <td>{c.price}</td>
                 <td>{c.descrip}</td>
                 <td>{c.type}</td>
-                <td>{c.code}</td>
+
                 <td>
                   <Link to="/panel/addproducts">
                     <button
                       style={{
-                        backgroundColor: "black",
-                        borderRadius: "20%",
+                        backgroundColor: 'black',
+                        borderRadius: '20%',
                       }}
                       onClick={() => handleEdit(c)}
                     >
@@ -65,8 +82,8 @@ const ShowProducts = ({
                 <td>
                   <button
                     style={{
-                      backgroundColor: "black",
-                      borderRadius: "20%",
+                      backgroundColor: 'black',
+                      borderRadius: '20%',
                     }}
                     onClick={() => handleRemove(c._id)}
                   >

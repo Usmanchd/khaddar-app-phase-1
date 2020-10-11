@@ -79,7 +79,9 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                               <p>
                                 <b>{item.decrip}</b>
                               </p>
-                              <p>{item.name}</p>
+                              <p>
+                                {item.name}({item.code})
+                              </p>
                             </div>
                           </div>
                         </td>
@@ -101,7 +103,7 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                                 className="btn"
                                 onClick={() => handleDecrement(item)}
                                 disabled={item.quantity == 0}
-                                style={{ padding: '20px', marginRight: '4px' }}
+                                style={{ padding: '16px', marginRight: '4px' }}
                               >
                                 -
                               </button>
@@ -112,7 +114,7 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                               <button
                                 className="btn"
                                 onClick={() => handleIncrement(item)}
-                                style={{ padding: '20px' }}
+                                style={{ padding: '16px' }}
                               >
                                 +
                               </button>
@@ -122,7 +124,7 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                               <button
                                 className="btn"
                                 onClick={() => handleRemove(item)}
-                                style={{ padding: '20px' }}
+                                style={{ padding: '16px' }}
                               >
                                 Remove
                               </button>

@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 // var fs = require(‘fs’);
-var multer = require("multer");
+var multer = require('multer');
 
-const Products = require("../modals/Products");
+const Products = require('../modals/Products');
 
 // @route POST api/products
 // @decs add products
 // @access Public
-router.post("/create", async (req, res) => {
+router.post('/create', async (req, res) => {
   console.log(req.body);
   const {
     name,
@@ -32,17 +32,17 @@ router.post("/create", async (req, res) => {
       img,
     });
     await newProduct.save();
-    res.json("saved");
+    res.json('saved');
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("server error2");
+    res.status(500).send('server error2');
   }
 });
 
 //@route    PUt api/products/:id at this id update
 //@desc     update product
 //@access
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   const {
     name,
     descrip,
@@ -68,44 +68,44 @@ router.put("/:id", async (req, res) => {
   try {
     let product = await Products.findById(req.params.id);
 
-    if (!product) return res.status(404).json({ msg: "Product not found" });
+    if (!product) return res.status(404).json({ msg: 'Product not found' });
 
     product = await Products.findByIdAndUpdate(
       req.params.id,
       { $set: productFields },
       { new: true }
     );
-    res.json("updated");
+    res.json('updated');
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("server error2");
+    res.status(500).send('server error2');
   }
 });
 
 //@route    Delete api/products/:id at this id update
 //@desc     delete product
 //@access
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { name, descrip, price, discount, type, category, code } = req.body;
 
   try {
     let product = await Products.findById(req.params.id);
 
-    if (!product) return res.status(404).json({ msg: "Product not found" });
+    if (!product) return res.status(404).json({ msg: 'Product not found' });
 
     await Products.findByIdAndRemove(req.params.id);
-    res.json({ msg: "deleted" });
+    res.json({ msg: 'deleted' });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("server error2");
+    res.status(500).send('server error2');
   }
 });
 
 // @route GET api/products
 // @decs test route
 // @access Public
-router.get("/", async (req, res) => {
-  const products = await Products.find().populate("categories");
+router.get('/', async (req, res) => {
+  const products = await Products.find().sort('code').populate('categories');
 
   res.send(products);
 });
