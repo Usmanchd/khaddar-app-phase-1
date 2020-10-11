@@ -13,7 +13,7 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
   const handleEdit = (c) => setCurrentCat(c);
   return (
     <div>
-      {data.categories.length === 0 ? (
+      {!data.categories ? (
         <div
           style={{
             display: 'flex',
@@ -47,29 +47,19 @@ const ShowCat = ({ data, removeCategory, setCurrentCat, clearCurrentCat }) => {
                 <td>{c.name}</td>
                 <td>{c.caption}</td>
                 <td>{c.descrip}</td>
-                <td>
+                <td className="edit_icon">
                   <Link to="/panel/addnewcategory">
-                    <button
-                      style={{
-                        backgroundColor: 'black',
-                        borderRadius: '20%',
-                      }}
+                    <i
+                      className="far fa-edit"
                       onClick={() => handleEdit(c)}
-                    >
-                      Edit
-                    </button>
+                    ></i>
                   </Link>
                 </td>
                 <td>
-                  <button
-                    style={{
-                      backgroundColor: 'black',
-                      borderRadius: '20%',
-                    }}
-                    onClick={() => handleRemove(c._id)}
-                  >
-                    Remove
-                  </button>
+                  <i
+                    className="far fa-trash-alt"
+                    // onClick={() => handleRemove(c._id)}
+                  ></i>
                 </td>
               </tr>
             ))}

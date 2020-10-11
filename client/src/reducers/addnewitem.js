@@ -1,6 +1,6 @@
-import uuid from "uuid";
-import InitialState from "./InitialState";
-import axios from "axios";
+import uuid from 'uuid';
+import InitialState from './InitialState';
+import axios from 'axios';
 
 const inititialize = {
   items: [],
@@ -12,48 +12,48 @@ const inititialize = {
 const Reducer = (state = inititialize, action) => {
   let { type, payload } = action;
   switch (type) {
-    case "ADD_ITEM":
+    case 'ADD_ITEM':
       return {
         ...state,
         items: [payload, ...state.items],
       };
-    case "ADD_CATEGORY":
+    case 'ADD_CATEGORY':
       return {
         ...state,
         categories: [payload, ...state.categories],
       };
-    case "REMOVE_CATEGORY":
+    case 'REMOVE_CATEGORY':
       return {
         ...state,
         categories: state.categories.filter((cat) => cat._id !== payload),
       };
-    case "REMOVE_ITEM":
+    case 'REMOVE_ITEM':
       return {
         ...state,
         items: state.items.filter((cat) => cat._id !== payload),
       };
 
-    case "SET_CURRENT_CAT":
+    case 'SET_CURRENT_CAT':
       return {
         ...state,
         currentcat: payload,
       };
-    case "SET_CURRENT_ITEM":
+    case 'SET_CURRENT_ITEM':
       return {
         ...state,
         currentitem: payload,
       };
-    case "CLEAR_CURRENT_CAT":
+    case 'CLEAR_CURRENT_CAT':
       return {
         ...state,
         currentcat: null,
       };
-    case "CLEAR_CURRENT_ITEM":
+    case 'CLEAR_CURRENT_ITEM':
       return {
         ...state,
         currentitem: null,
       };
-    case "UPDATE_CAT":
+    case 'UPDATE_CAT':
       return {
         ...state,
         categories: state.categories.map((cat) =>
@@ -61,7 +61,7 @@ const Reducer = (state = inititialize, action) => {
         ),
       };
 
-    case "UPDATE_ITEM":
+    case 'UPDATE_ITEM':
       return {
         ...state,
         items: state.items.map((item) =>
@@ -69,13 +69,13 @@ const Reducer = (state = inititialize, action) => {
         ),
       };
 
-    case "SET_PRODUCTS":
+    case 'SET_PRODUCTS':
       return {
         ...state,
         items: [...payload],
       };
 
-    case "SET_CATEGORY":
+    case 'SET_CATEGORY':
       return {
         ...state,
         categories: [...payload],
@@ -112,7 +112,7 @@ const Reducer = (state = inititialize, action) => {
     //   };
     // case "CLEAR":
     //   return { ...state, filtered: null };
-    case "ITEM_ERROR":
+    case 'ITEM_ERROR':
       return { ...state, error: payload };
     default:
       return state;

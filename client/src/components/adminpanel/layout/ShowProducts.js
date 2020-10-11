@@ -66,29 +66,19 @@ const ShowProducts = ({
                 <td>{c.descrip}</td>
                 <td>{c.type}</td>
 
-                <td>
+                <td className="edit_icon">
                   <Link to="/panel/addproducts">
-                    <button
-                      style={{
-                        backgroundColor: 'black',
-                        borderRadius: '20%',
-                      }}
+                    <i
+                      className="far fa-edit"
                       onClick={() => handleEdit(c)}
-                    >
-                      Edit
-                    </button>
+                    ></i>
                   </Link>
                 </td>
                 <td>
-                  <button
-                    style={{
-                      backgroundColor: 'black',
-                      borderRadius: '20%',
-                    }}
+                  <i
+                    className="far fa-trash-alt"
                     onClick={() => handleRemove(c._id)}
-                  >
-                    Remove
-                  </button>
+                  ></i>
                 </td>
               </tr>
             ))}

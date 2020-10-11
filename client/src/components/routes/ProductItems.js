@@ -128,9 +128,9 @@ const ProductItems = ({ data, addCart, addLike, updateCart, unLike, cart }) => {
                   <button
                     className="btn"
                     onClick={() => handleCart(product)}
-                    style={{ padding: '25px' }}
+                    style={{ padding: '15px', fontSize: 14 }}
                   >
-                    Add to Cart
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
                   </button>
                 </h4>
               </div>

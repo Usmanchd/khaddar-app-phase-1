@@ -29,7 +29,7 @@ ReactDOM.render(
             }}
           >
             <img src={offlinejpg} width="40%" />
-            <h1>Your are offline, please check your internet connection.</h1>
+            <h1>You are offline, please check your internet connection.</h1>
           </div>
         )
       }

@@ -90,50 +90,39 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                         <td>
                           <h5>{item.price}</h5>
                         </td>
-                        <td>
+                        <td >
                           <div className="product_count">
-                            {/* <input
-                              className="input-number"
-                              type="text"
-                              value="1"
-                              min="0"
-                              max="10"
-                            /> */}
-                            <span>
-                              {' '}
-                              <button
-                                className="btn"
+                            <span style={{ margin: '0 10px 0 10px' }}>
+                              <i
+                                class="fas fa-minus"
                                 onClick={() => handleDecrement(item)}
                                 disabled={item.quantity == 1}
-                                style={{ padding: '16px', marginRight: '4px' }}
-                              >
-                                -
-                              </button>
+                                style={{ fontSize: 20 }}
+                              ></i>
                             </span>
-                            {item.quantity}
-                            <span>
-                              {' '}
-                              <button
-                                className="btn"
+                            <span
+                              className="noselect"
+                              style={{ fontSize: 20, padding: '0 5px 0 5px' }}
+                            >
+                              {item.quantity}
+                            </span>
+                            <span style={{ margin: '0 10px 0 10px' }}>
+                              <i
+                                class="fas fa-plus"
                                 onClick={() => handleIncrement(item)}
-                                style={{ padding: '16px' }}
-                              >
-                                +
-                              </button>
+                                style={{ fontSize: 20 }}
+                              ></i>
                             </span>
-                            <span>
-                              {' '}
-                              <button
-                                className="btn"
+                            <span style={{ margin: '0 10px 0 20px' }}>
+                              <i
+                                className="far fa-trash-alt"
                                 onClick={() => handleRemove(item)}
-                                style={{ padding: '16px' }}
-                              >
-                                Remove
-                              </button>
+                                style={{ fontSize: 26 }}
+                              ></i>
                             </span>
                           </div>
                         </td>
-                        <td>
+                        <td style={{ width: 120 }}>
                           <h4>
                             <b>{item.price * item.quantity}</b>
                           </h4>
@@ -185,7 +174,7 @@ const Cart = ({ cart, updateCart, removeItem }) => {
               </table>
               <div className="checkout_btn_inner float-right">
                 <Link to="/checkout">
-                  <a className="btn_1 checkout_btn_1">CheckOut</a>
+                  <a className="btn_1 checkout_btn_1">Checkout</a>
                 </Link>
               </div>
             </div>

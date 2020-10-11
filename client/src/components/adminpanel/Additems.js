@@ -141,7 +141,7 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
     //   code: "",
     // });
   };
-  if (data.categories.length === 0)
+  if (!data.categories)
     return (
       <div
         style={{
