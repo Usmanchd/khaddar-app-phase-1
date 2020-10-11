@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import OrderDetailsModal from './layout/OrderDetailsModal';
 import socketIOClient from 'socket.io-client';
 
-const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'https://synergysol.herokuapp.com';
 
 const socket = socketIOClient(ENDPOINT);
 
