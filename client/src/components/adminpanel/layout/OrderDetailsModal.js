@@ -91,9 +91,11 @@ export default function OrderDetailsModal({
               value={state.value}
               style={{ width: '140px' }}
             >
-              <option value="pending">pending</option>
-              <option value="confirmed">confirmed</option>
-              <option value="completed">completed</option>
+              <option value="Pending">Pending</option>
+              <option value="Processing">Processing</option>
+              <option value="In Transit">In Transit</option>
+              <option value="Completed">Completed</option>
+              <option value="Canceled">Canceled</option>
             </select>
           </p>
           <p>
