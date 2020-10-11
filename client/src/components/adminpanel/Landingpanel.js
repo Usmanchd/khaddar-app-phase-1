@@ -59,23 +59,23 @@ const Landingpanel = () => {
           <span>Dashboard</span>
         </Link>
         <Link to="/panel/orderlist">
-          <i class="fas fa-desktop"></i>
+          <i class="fas fa-shopping-cart"></i>
           <span>Booked Order</span>
         </Link>
         <Link to="/panel/addnewcategory">
-          <i class="fas fa-th"></i>
+          <i class="fas fa-plus"></i>
           <span>Add New Category</span>
         </Link>
         <Link to="/panel/allcategories">
-          <i class="fas fa-th"></i>
+          <i class="fab fa-cuttlefish"></i>
           <span>All Categories</span>
         </Link>
         <Link to="/panel/addproducts">
-          <i class="fas fa-th"></i>
+          <i class="fas fa-plus"></i>
           <span>Add New Products</span>
         </Link>
         <Link to="/panel/allproducts">
-          <i class="fas fa-th"></i>
+          <i class="fab fa-product-hunt"></i>
           <span>All Products</span>
         </Link>
       </div>

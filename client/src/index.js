@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { HashRouter } from 'react-router-dom';
 import { Detector } from 'react-detect-offline';
+import offlinejpg from './assets/offline.jpg';
 import './index.css';
 
 import App from './App';
@@ -27,7 +28,7 @@ ReactDOM.render(
               height: '100vh',
             }}
           >
-            <img src={require('./assets/offline.jpg')} width="40%" />
+            <img src={offlinejpg} width="40%" />
           </div>
         )
       }

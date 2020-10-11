@@ -165,6 +165,21 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
         style={{ width: '50%', margin: 'auto', padding: '40px' }}
       >
         <div className="form-group">
+          <img src={state.avatarURL} style={{ width: '20%' }} />
+          <FileUploader
+            accept="image/*"
+            name="avatar"
+            id="img"
+            randomizeFilename
+            storageRef={firebase.storage().ref('images')}
+            onUploadStart={handleUploadStart}
+            onUploadError={handleUploadError}
+            onUploadSuccess={handleUploadSuccess}
+            onProgress={handleProgress}
+            class="form-control"
+          />
+        </div>
+        <div className="form-group">
           <input
             type="text"
             placeholder="Enter name"
@@ -303,21 +318,6 @@ const Additems = ({ addItem, data, clearCurrentItem, updateItem }) => {
             value={code}
             onChange={(e) => onChange(e)}
             required
-            class="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <img src={state.avatarURL} style={{ width: '20%' }} />
-          <FileUploader
-            accept="image/*"
-            name="avatar"
-            id="img"
-            randomizeFilename
-            storageRef={firebase.storage().ref('images')}
-            onUploadStart={handleUploadStart}
-            onUploadError={handleUploadError}
-            onUploadSuccess={handleUploadSuccess}
-            onProgress={handleProgress}
             class="form-control"
           />
         </div>
