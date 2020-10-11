@@ -22,12 +22,14 @@ const Cart = ({ cart, updateCart, removeItem }) => {
   //     cart.cartitems.reduce((amount, c) => (amount += c.quantity * c.price), 0)
   //   );
   // }, [cart.cartitems]);
-  const handleDecrement = (item) =>
+  const handleDecrement = (item) => {
+    if (item.quantity === 1) return;
     cart.cartitems.map((p) => {
       const addCart =
         p._id === item._id ? { ...item, quantity: --item.quantity } : item;
       updateCart(addCart);
     });
+  };
   const handleIncrement = (item) =>
     cart.cartitems.map((p) => {
       const addCart =
@@ -102,7 +104,7 @@ const Cart = ({ cart, updateCart, removeItem }) => {
                               <button
                                 className="btn"
                                 onClick={() => handleDecrement(item)}
-                                disabled={item.quantity == 0}
+                                disabled={item.quantity == 1}
                                 style={{ padding: '16px', marginRight: '4px' }}
                               >
                                 -

@@ -146,7 +146,7 @@ export default function OrderDetailsModal({
                       <td>
                         <div className="media">
                           <div className="d-flex">
-                            <img src={item.product.img} alt="" width="20%" />
+                            <img src={item.product.img} alt="" width="50%" />
                           </div>
                           <div className="media-body">
                             <p>

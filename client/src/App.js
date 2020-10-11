@@ -37,6 +37,10 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import { getInitData } from './actions/addnewitem';
 
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -115,6 +119,7 @@ function App() {
         </Switch>
         <Footer />
       </div>
+      <ToastContainer />
     </div>
   );
 }

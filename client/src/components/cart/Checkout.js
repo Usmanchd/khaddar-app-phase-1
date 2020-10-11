@@ -40,6 +40,7 @@ const Checkout = ({ cart, orderPlace }) => {
     setOrderdetail({ ...orderdetail, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (cart.cartitems.length === 0) return;
     const productsOrder = cart.cartitems.map((item) => {
       return { product: item._id, quantity: item.quantity };
     });
