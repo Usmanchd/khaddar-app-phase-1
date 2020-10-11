@@ -218,7 +218,7 @@ export default function OrderDetailsModal({
                     </td>
                     <td>
                       <h3>
-                        <b>{order.total}</b>
+                        <b>{order.total + 150}</b>
                       </h3>
                     </td>
                   </tr>
